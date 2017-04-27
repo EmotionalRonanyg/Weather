@@ -1,6 +1,9 @@
 package info.emotionalronan.weather.util;
 
 import android.text.TextUtils;
+
+import com.google.gson.Gson;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,6 +11,7 @@ import org.json.JSONObject;
 import info.emotionalronan.weather.db.City;
 import info.emotionalronan.weather.db.County;
 import info.emotionalronan.weather.db.Province;
+import info.emotionalronan.weather.gson.Weather;
 
 /**
  * Created by YG on 2017/4/27.
@@ -84,6 +88,25 @@ public class Utility {
             }
         }
         return false;
+    }
+
+    /**
+     * j解析和处理服务器返回的县（/市）级数据
+     */
+
+    public static Weather handelWeatherResponse(String response){
+
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            //使用 Gson保存对象
+            return  new Gson().fromJson(weatherContent,Weather.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 }
