@@ -8,7 +8,7 @@
     	For example:    
     	<dbname value="demo" />
     -->
-    <dbname value="Weather" />
+    <dbname value="Weather.db" />
 
     <!--
     	Define the version of your database. Each time you want 
@@ -32,9 +32,9 @@
     	</list>
     -->
     <list>
-        <mappinig class = "info.emotionalronan.weather.db.Province"/>
-        <mappinig class = "info.emotionalronan.weather.db.City"/>
-        <mappinig class = "info.emotionalronan.weather.db.County"/>
+        <mapping class = "info.emotionalronan.weather.db.Province"/>
+        <mapping class = "info.emotionalronan.weather.db.City"/>
+        <mapping class = "info.emotionalronan.weather.db.County"/>
 
     </list>
 
