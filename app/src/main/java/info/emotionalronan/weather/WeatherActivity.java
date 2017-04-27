@@ -194,7 +194,7 @@ public class WeatherActivity extends AppCompatActivity {
                             //开启8小时自动更新服务
                             Intent intent = new Intent(WeatherActivity.this, AutoUpdateService.class);
                             startService(intent);
-                            
+
                         }else {
                             Toast.makeText(WeatherActivity.this, "获取天气信息失败！", Toast.LENGTH_SHORT).show();
                         }
